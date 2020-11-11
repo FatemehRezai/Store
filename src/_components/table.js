@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from "react-router-dom";
 import PropTypes from 'prop-types';
 import { Button } from 'reactstrap';
+import { WidgetTitle } from '../_components/index';
 
 
 
@@ -56,9 +57,10 @@ class MyTable extends Component {
     render () {
         // console.log("this.props.data   " , this.props.data);
         return <>
-            <div key={this.props.data} className="d-flex flex-column w-75p border">
+            <div key={this.props.data} className="d-flex flex-column w-75p ">
                 {/* <caption className="align-self-start px-5">لیست پوشاک</caption> */}
-                <table className="table table-hover table-responsive"> 
+                <WidgetTitle/>
+                <table className="table table-hover table-responsive border"> 
                     <thead className="thead-light text-center">
                         <tr>
                             {this.generateHeader()}
