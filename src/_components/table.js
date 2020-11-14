@@ -3,6 +3,7 @@ import { withRouter } from "react-router-dom";
 import PropTypes from 'prop-types';
 import { Button } from 'reactstrap';
 import { WidgetTitle } from '../_components/index';
+import { category } from "../_const/Category";
 
 
 
@@ -59,7 +60,7 @@ class MyTable extends Component {
         return <>
             <div key={this.props.data} className="d-flex flex-column w-75p ">
                 {/* <caption className="align-self-start px-5">لیست پوشاک</caption> */}
-                <WidgetTitle/>
+                <WidgetTitle title={this.props.title} widgetTitle={this.props.widgetTitle}/>
                 <table className="table table-hover table-responsive border"> 
                     <thead className="thead-light text-center">
                         <tr>
@@ -82,10 +83,14 @@ export { myTableWithRouter as MyTable};
 MyTable.propTypes = {
     data: PropTypes.array,
     column: PropTypes.array,
+    title: PropTypes.string,
+    widgetTitle: PropTypes.string,
 }
 MyTable.defaultProps = {
     data: [],
     column: [],
+    title: "",
+    widgetTitle: "لیست",
 }
 
 

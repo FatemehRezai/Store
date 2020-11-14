@@ -12,10 +12,10 @@ class PageTitle extends Component {
     }
 
     render() {
-        const {categoryTitle} = this.props;
+        const {title} = this.props;
         return(<>
-            <div>
-                <span>لیست {categoryTitle} </span>
+            <div className="border-bottom h3 m-5 p-3 font-weight-bold">
+                <span>صفحه {title} </span>
             </div>
         </>);
     }
@@ -26,8 +26,8 @@ const pageTitleWithRouter = withRouter(PageTitle);
 export { pageTitleWithRouter as PageTitle }
 
 // PageTitle.PropTypes = {
-//     categoryTitle: PropTypes.string,
+//     title: PropTypes.string,
 // }
 PageTitle.defaultProps = {
-    categoryTitle: "",
+    title: "",
 }

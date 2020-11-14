@@ -8,8 +8,10 @@ import { MyTable, MyResponsiveNavbar } from '../../../_components';
 import { lsJoinProductArray } from '../_helpers/lsJoinProductArray';
 import { removeFactorArrayItem } from '../_contorollers/factors.contoroller';
 
+import { PageTitle } from '../../../_components/index';
 
 function Factor(props) {
+    const title = "فاکتور";
     let data = lsJoinProductArray();
     const [updatedData, setupdatedData] = useState();
     // console.log("ls join in factor.page", data);
@@ -32,7 +34,8 @@ function Factor(props) {
             
             {/* <!-- mainbar --> */}
             <div className="mainbar col-md-9 col-12 d-flex flex-column justify-content-center align-items-center bg-1 marginRight25per" id="mainbar">
-                <MyTable data={data} column={factorColumn} onClick={click}/>
+                <PageTitle title={title} />
+                <MyTable data={data} column={factorColumn} onClick={click} title={title} widgetTitle={"لیست"}/>
             </div>
         </div>
    

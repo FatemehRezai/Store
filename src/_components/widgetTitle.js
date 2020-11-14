@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import PropTypes from 'prop-types';
-import { Table } from "reactstrap";
 
 class WidgetTitle extends Component {
     constructor(props) {
@@ -12,10 +11,10 @@ class WidgetTitle extends Component {
     }
 
     render() {
-        const {categoryTitle} = this.props;
+        const {title, widgetTitle} = this.props;
         return(<>
-            <div>
-                <span>لیست {categoryTitle} </span>
+            <div className="mb-3">
+                <span>{widgetTitle} {title} </span>
             </div>
         </>);
     }
@@ -26,8 +25,10 @@ const widgetTitleWithRouter = withRouter(WidgetTitle);
 export { widgetTitleWithRouter as WidgetTitle }
 
 // WidgetTitle.PropTypes = {
-//     categoryTitle: PropTypes.string,
+//     widgetTitle: PropTypes.string,
+//     title: PropTypes.string,
 // }
 WidgetTitle.defaultProps = {
-    categoryTitle: "",
+    widgetTitle: "",
+    title: "",
 }
