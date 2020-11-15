@@ -19,13 +19,9 @@ class ProductInfo extends Component {
         // const {pathname} = this.props.location;
         // // let pathnameStr = pathname.split("/");
         // const productCategory = (pathname.split("/"))[1];
-        // console.log("this.props    product" , this.props);
-        // console.log("id  ", id);
-        // console.log("data   " , data);
-        // console.log("productCategory ", productCategory);
+
         const { productId, data, productCategory } = this.props;
-        // console.log("id  ", productId);
-        // console.log("data   " , data);
+
 
         const isEqualId = (i) => +(i.productId) === +(productId);///////////???????????????????
         const index = data.findIndex(isEqualId);

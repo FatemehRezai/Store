@@ -19,15 +19,15 @@ class MyTable extends Component {
         return res;
     }
 
-    //onclick method and go to product info need to check and change
-    gotoProductInfo = (productId) => {
-        // console.log("this.props.   table",  this.props);
-        const productCategory = this.props.location.pathname;
-        this.props.history.push({
-            pathname: productCategory + '/' + productId,
-            // state: this.props.data
-        });
-    }
+    // //onclick method and go to product info need to check and change
+    // gotoProductInfo = (productId) => {
+    //     // console.log("this.props.   table",  this.props);
+    //     const productCategory = this.props.location.pathname;
+    //     this.props.history.push({
+    //         pathname: productCategory + '/' + productId,
+    //         // state: this.props.data
+    //     });
+    // }
     generateTableData = () => {
         const {data, column, onClick} = this.props;
         let res = [];
@@ -39,9 +39,8 @@ class MyTable extends Component {
                     <tr key={value.productId}>
                         {/* productId */}
                         {column.map((value2, index2) => {
-                            return (<td key={value2.columnHeader_id}><span style={{display:"inline-block"}} onClick={()=> {onClick && onClick(value2, value)}}>{value2.fun(value)}</span></td>);
+                            return (<td key={value2.columnHeader_id}><span style={{display:"inline-block"}} onClick={()=> {onClick && onClick(value2, value)}}>{value2.fun(value)}</span></td>);//props click
                             // if (value2.type === 'info') {
-                            //     /////////////????????????????????
                             //     return (<td key={value2.columnHeader_id} onClick={()=> {onClick && onClick(value2, value)}}><Button color="info" >مشاهده</Button></td>);
                             // } else {
                             //     return (<td key={value2.columnHeader_id}><span style={{display:"inline-block"}} onClick={()=> {onClick && onClick(value2, value)}}>{value2.fun(value)}</span></td>);

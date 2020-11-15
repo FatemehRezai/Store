@@ -1,7 +1,8 @@
 import { Button } from 'reactstrap';
+import { Counter } from "../../../_components";
 
 
-let factorColumn = [
+let factorColumn =(props)=> [
     {
         columnHeader_id: 0,
         title: 'حذف',
@@ -28,7 +29,7 @@ let factorColumn = [
         title: 'تعداد',
         width: '64px',
         height: '100px',
-        fun: (item) => {return <div>{item.quantity}</div>}
+        fun: (item) => {return <div><Counter productId={item.productId} action={""} productCategory={item.productCategory} quantity={item.quantity} onChangeHandler= {props.onChangeHandler} /></div>}/////////////باید کانتر اضافه بشه
     },
     {
         columnHeader_id: 4,

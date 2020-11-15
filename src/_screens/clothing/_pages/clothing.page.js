@@ -9,7 +9,6 @@ import { PageTitle } from '../../../_components/index';
 
 function Clothing(props) {
     const productObj = productCategoryObj("clothing");
-    // console.log(productObj);
 
     const click = (column, item) => {
         if (column.columnHeader_id === 5) { // in column of info 

@@ -19,10 +19,10 @@ export function lsJoinProductArray() {
                     id: value.id,
                     productId: value.productId,
                     quantity: value.quantity,
+                    productCategory: value.productCategory,
                     title: productArray[indexOfproduct].title,
                     price: productArray[indexOfproduct].price,
                     img: productArray[indexOfproduct].img,
-                    
                 }
             )
         )

@@ -1,4 +1,4 @@
-import {set, get, remove, clear} from '../../../_helpers/store'
+import {set, get, remove, clear} from '../../../_helpers/store';
 
 let factorArrayKey = 'factorArray';
 
@@ -67,6 +67,8 @@ export const removeFactorArray = () => {//////////////need to change remove by i
 export function clearFactorArray() {
     clear();
 }
+
+
 
 
 

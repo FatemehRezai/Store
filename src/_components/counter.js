@@ -18,26 +18,17 @@ class Counter extends Component {
             max: 10
         };
     }
-    /**
-     * 
-     * @param {*} item 
-     */
-    _test =(item) => {return 123;}
 
     increaseQuantity = () => {
         const { productId, action, productCategory } = this.props;
-        const { quantity, max, min } = this.state;
+        const { quantity, max } = this.state;
         if (quantity < max) {
             // setState is async function if need to do sm after it you should write it in call back(2'th parameter)
             this.setState({ quantity: quantity + 1 }, () => {
                 if (action !== "add") {
                     let tempId = productId;
-                    let tempQuantity = quantity;
-
-                    // console.log('tempQuantity  ', tempQuantity);
-
+                    let tempQuantity = this.state.quantity;
                     setFactor(tempId, tempQuantity, productCategory);
-                    /////////////////////////////////////
                     this.props.onChangeHandler(tempQuantity);
                 }
             })
@@ -58,18 +49,14 @@ class Counter extends Component {
 
     decreaseQuantity = () => {
         const { productId, action, productCategory } = this.props;
-        const { quantity, max, min } = this.state;
+        const { quantity, min } = this.state;
         if (quantity > min) {
             // setState is async function if need to do sm after it you should write it in call back(2'th parameter)
             this.setState({ quantity: quantity - 1 }, () => {
                 if (action !== "add") {
                     let tempId = productId;
-                    let tempQuantity = quantity;
-
-                    // console.log('tempQuantity  ', tempQuantity);
-
+                    let tempQuantity = this.state.quantity;
                     setFactor(tempId, tempQuantity, productCategory);
-                    /////////////////////////////////////
                     this.props.onChangeHandler(tempQuantity);
                 }
             })
@@ -94,12 +81,15 @@ class Counter extends Component {
         const { quantity, max } = this.state;
 
         let tempId = productId;
+        //get Array of Factor from Local Storage
         let factorArray = getFactorArray();
 
+        //find factor item in Local Storage based on productId from props
         const isEqualId = (i) => +(i.productId) === +(tempId);
         let factorItem = factorArray[factorArray.findIndex(isEqualId)];
         let tempQuantity = factorItem ? factorItem.quantity : 0;
 
+        //check quantity for being in range
         if (quantity + tempQuantity > max) {
             setFactor(tempId, max, productCategory); 
         }

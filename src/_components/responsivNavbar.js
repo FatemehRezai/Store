@@ -12,6 +12,10 @@ class MyResponsiveNavbar extends Component {
         };
     }
 
+    goHome = () => {
+        this.props.history.push('/');
+    }
+
     goFactor = () => {
         this.props.history.push('/factor');
     }
@@ -58,8 +62,11 @@ class MyResponsiveNavbar extends Component {
         return <>
             {/* <!-- sidebar --> */}
             <div className="mysidebar d-none d-md-block col-md-3 bg-dark py-5 h-100 fixed-right">
-                <div className="cartButton text-center m-3">
-                    <button type="button" className="btn btn-light btn-lg" onClick={() => this.goFactor()}>
+                <div className="cartButton justify-content-between mx-1 my-3 d-flex row">
+                    <button type="button" className="btn btn-light btn-lg " onClick={() => this.goHome()}>
+                        <i className="fas fa-home"></i>
+                    </button>
+                    <button type="button" className="btn btn-light btn-lg " onClick={() => this.goFactor()}>
                         <i className="fas fa-shopping-cart"></i>
                     </button>
                 </div>
