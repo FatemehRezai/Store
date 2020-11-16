@@ -5,17 +5,36 @@ import { Button } from 'reactstrap';
 import { WidgetTitle } from '../_components/index';
 import { category } from "../_const/Category";
 
-
+// Load the full build.
+var _ = require('lodash');
 
 class MyTable extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            data:this.props.data || [],
+            sortToggle: false,
+        };
+    }
 
+    onSort = (data, sortKey, dir = "des") => {
+        let sorted = _.sortBy(data, sortKey)
+        sorted = this.state.sortToggle? sorted.reverse() : sorted;
+        this.setState({ data: sorted , sortToggle: !this.state.sortToggle});
+    }
 
-    generateHeader = () => { 
-        const {column} = this.props;
+    generateHeader = () => {
+        const { column } = this.props;
+        const { data } = this.state;
         let res = [];
-        column.map( (value,index) => {
-            return( res.push(<th key={value.columnHeader_id}>{value.title}</th>) )
-        } )
+        column.map((value, index) => {
+            const sortFunction = value.sortable ? () => this.onSort(data, value.columnHeader_name) : "";
+            if (value.sortable) {
+                return (res.push(<th key={value.columnHeader_id} onClick={sortFunction} style={{ cursor: 'pointer' }} ><i class="fas fa-sort"></i> {value.title}</th>))
+            }
+
+            return (res.push(<th key={value.columnHeader_id}  >{value.title}</th>))
+        })
         return res;
     }
 
@@ -29,7 +48,8 @@ class MyTable extends Component {
     //     });
     // }
     generateTableData = () => {
-        const {data, column, onClick} = this.props;
+        const {column, onClick} = this.props;
+        const {data} = this.state;
         let res = [];
 
         data.map((value, index) => {
@@ -39,7 +59,7 @@ class MyTable extends Component {
                     <tr key={value.productId}>
                         {/* productId */}
                         {column.map((value2, index2) => {
-                            return (<td key={value2.columnHeader_id}><span style={{display:"inline-block"}} onClick={()=> {onClick && onClick(value2, value)}}>{value2.fun(value)}</span></td>);//props click
+                            return (<td key={value2.columnHeader_id}><span style={{ display: "inline-block" }} onClick={() => { onClick && onClick(value2, value) }}>{value2.fun(value)}</span></td>);//props click
                             // if (value2.type === 'info') {
                             //     return (<td key={value2.columnHeader_id} onClick={()=> {onClick && onClick(value2, value)}}><Button color="info" >مشاهده</Button></td>);
                             // } else {
