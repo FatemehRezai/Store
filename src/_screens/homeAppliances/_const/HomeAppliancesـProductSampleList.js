@@ -51,7 +51,7 @@ let homeAppliances_productArray = [
     {
         variant_id:3,
         productId:304,
-        stock: 100,
+        stock: 0,
         name: 'dishwasher_2',
         title: 'ماشین ظرفشویی',
         price: 563,

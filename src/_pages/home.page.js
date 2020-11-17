@@ -16,7 +16,7 @@ function Home(props) {
             {/* <!-- mainbar --> */}
             <div className="mainbar col-md-9 col-12 d-flex flex-column justify-content-center align-items-center bg-1 marginRight25per" id="mainbar">
                 <div>
-                    <img src={imgHome} alt={"gif"} className="productImg"/>
+                    <img src={imgHome} alt={"gif"} className="w-100 h-100"/>
                 </div>
             </div>
         </div>

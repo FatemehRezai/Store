@@ -30,7 +30,8 @@ let column = [
         height: '100px',
         fun: (item) => {return <div>{item.price}</div>},
         sortable: true,
-        type: 'text',
+        filterable: true,
+        type: 'number',
     },
     {
         columnHeader_id: 3,
@@ -40,7 +41,7 @@ let column = [
         height: '100px',
         fun: (item) => {return <div>{item.stock}</div>},
         sortable: true,
-        type: 'text',
+        type: 'number',
     },
     {
         columnHeader_id: 4,
@@ -50,7 +51,7 @@ let column = [
         height: '100px',
         fun: (item) => {return <div>{item.variant_id}</div>},
         sortable: false,
-        type: 'text',
+        type: 'number',
     },
     {
         columnHeader_id: 5,

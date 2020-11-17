@@ -57,7 +57,7 @@ let clothing_productArray = [//////////////?????????????????
         stock: 100,
         name: 'jacket_1',
         title: 'کاپشن',
-        price: 303,
+        price: 323,
         img: Jacket_1,
         description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است."
     },
@@ -77,7 +77,7 @@ let clothing_productArray = [//////////////?????????????????
         stock: 100,
         name: 'hoodie_1',
         title: 'هودی',
-        price: 563,
+        price: 463,
         img: Hoodie_1,
         description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است."
     },
@@ -91,26 +91,26 @@ let clothing_productArray = [//////////////?????????????????
         img: Hoodie_2,
         description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است."
     },
-    // {
-    //     variant_id:2,
-    //     productId:208,
-    //     stock: 100,
-    //     name: 'hoodie_3',
-    //     title: 'هودی',
-    //     price: 563,
-    //     img: Hoodie_3,
-    //     description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است."
-    // },
-    // {
-    //     variant_id:2,
-    //     productId:209,
-    //     stock: 100,
-    //     name: 'shoes_1',
-    //     title: 'کفش',
-    //     price: 504,
-    //     img: Shoes_1,
-    //     description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است."
-    // },
+    {
+        variant_id:2,
+        productId:208,
+        stock: 0,
+        name: 'hoodie_3',
+        title: 'هودی',
+        price: 583,
+        img: Hoodie_3,
+        description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است."
+    },
+    {
+        variant_id:2,
+        productId:209,
+        stock: 0,
+        name: 'shoes_1',
+        title: 'کفش',
+        price: 204,
+        img: Shoes_1,
+        description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است."
+    },
     // {
     //     variant_id:2,
     //     productId:210,
