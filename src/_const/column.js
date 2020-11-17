@@ -8,7 +8,9 @@ let column = [
         width: '64px',
         height: '100px',
         fun: ((item) => {return <div> <img src={item.img} alt="strawberry" width="30px" height="30px"/>  <span> {item.title} </span></div>}),
-        sortable: true
+        sortable: true,
+        filterable: true,
+        type: 'text',
     },
     // {
     //     columnHeader_id: 1,
@@ -18,6 +20,7 @@ let column = [
     //     height: '100px',
     //     fun: (item) => {return <div>{item.name}</div>},
         // sortable: true
+        // type: 'text',
     // },
     {
         columnHeader_id: 2,
@@ -27,6 +30,7 @@ let column = [
         height: '100px',
         fun: (item) => {return <div>{item.price}</div>},
         sortable: true,
+        type: 'text',
     },
     {
         columnHeader_id: 3,
@@ -36,6 +40,7 @@ let column = [
         height: '100px',
         fun: (item) => {return <div>{item.stock}</div>},
         sortable: true,
+        type: 'text',
     },
     {
         columnHeader_id: 4,
@@ -45,6 +50,7 @@ let column = [
         height: '100px',
         fun: (item) => {return <div>{item.variant_id}</div>},
         sortable: false,
+        type: 'text',
     },
     {
         columnHeader_id: 5,
@@ -54,7 +60,8 @@ let column = [
         height: '100px',
         fun: (item) => {return <div><Button color="info" >مشاهده</Button></div>},
         sortable: false,
-        type: 'info',
+        // type: 'info',
+        type: 'text',
     },
     {
         columnHeader_id: 6,
@@ -64,6 +71,7 @@ let column = [
         height: '100px',
         fun: (item) => {return <div>{item.id}</div>},////
         sortable: false,
+        type: 'text',
     },
 ]
 export default column;

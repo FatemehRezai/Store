@@ -14,6 +14,7 @@ class MyTable extends Component {
         this.state = {
             data:this.props.data || [],
             sortToggle: false,
+            filterKey: '',
         };
     }
 
@@ -23,6 +24,23 @@ class MyTable extends Component {
         this.setState({ data: sorted , sortToggle: !this.state.sortToggle});
     }
 
+    onFilter = (e, data, filed) => {
+        this.setState({ filterKey: e.target.value }, () => {
+
+        let fieldStr = filed.toString();
+        console.log("filterKey ", typeof this.state.filterKey);
+
+        //_.matchesProperty(path, srcValue)
+        // path (Array|string): The path of the property to get.
+        // srcValue (*): The value to match.
+        let filtered = _.filter(data, _.matchesProperty(fieldStr, this.state.filterKey));
+
+        // console.log("filtered ", filtered);
+
+        filtered.length >0 && this.setState({ data: filtered });
+        });
+    }
+
     generateHeader = () => {
         const { column } = this.props;
         const { data } = this.state;
@@ -30,10 +48,22 @@ class MyTable extends Component {
         column.map((value, index) => {
             const sortFunction = value.sortable ? () => this.onSort(data, value.columnHeader_name) : "";
             if (value.sortable) {
-                return (res.push(<th key={value.columnHeader_id} onClick={sortFunction} style={{ cursor: 'pointer' }} ><i class="fas fa-sort"></i> {value.title}</th>))
+                return (res.push(<th key={value.columnHeader_id}  ><i class="fas fa-sort" style={{ cursor: 'pointer' }} onClick={sortFunction}></i> {value.title}</th>));
             }
 
             return (res.push(<th key={value.columnHeader_id}  >{value.title}</th>))
+        })
+        return res;
+    }
+    generateFilterHeader = () => {
+        const { column } = this.props;
+        const { data } = this.state;
+        let res = [];
+        column.map((value, index) => {
+            const filterFunction = (e) => this.onFilter(e, data, value.columnHeader_name);///////////////////////
+            if (value.filterable) {
+                return (res.push(<th key={value.columnHeader_id}  ><input placeholder={value.title} value={ this.state.filterKey } onChange={filterFunction} ></input></th>));
+            }
         })
         return res;
     }
@@ -59,7 +89,7 @@ class MyTable extends Component {
                     <tr key={value.productId}>
                         {/* productId */}
                         {column.map((value2, index2) => {
-                            return (<td key={value2.columnHeader_id}><span style={{ display: "inline-block" }} onClick={() => { onClick && onClick(value2, value) }}>{value2.fun(value)}</span></td>);//props click
+                            return (<td key={value2.columnHeader_id} ><span style={{ display: "inline-block" }} onClick={() => { onClick && onClick(value2, value) }}>{value2.fun(value)}</span></td>);//props click
                             // if (value2.type === 'info') {
                             //     return (<td key={value2.columnHeader_id} onClick={()=> {onClick && onClick(value2, value)}}><Button color="info" >مشاهده</Button></td>);
                             // } else {
@@ -77,13 +107,18 @@ class MyTable extends Component {
     render () {
         // console.log("this.props.data   " , this.props.data);
         return <>
-            <div key={this.props.data} className="d-flex flex-column w-75p ">
+            <div key={this.props.data} className="d-flex flex-column w-75 ">
                 {/* <caption className="align-self-start px-5">لیست پوشاک</caption> */}
                 <WidgetTitle title={this.props.title} widgetTitle={this.props.widgetTitle}/>
                 <table className="table table-hover table-responsive border"> 
                     <thead className="thead-light text-center">
                         <tr>
                             {this.generateHeader()}
+                        </tr>
+                    </thead>
+                    <thead className="thead-light text-center">
+                        <tr>
+                            {this.generateFilterHeader()}
                         </tr>
                     </thead>
                     <tbody>
