@@ -51,6 +51,7 @@ let column = [
         height: '100px',
         fun: (item) => {return <div>{item.variant_id}</div>},
         sortable: false,
+        filterable: true,
         type: 'number',
     },
     {

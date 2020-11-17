@@ -68,8 +68,9 @@ class MyTable extends Component {
             const filterFunction = (e) => this.onFilter(e, data, value.columnHeader_name);///////////////////////
             if (value.filterable) {
                 let x = value.columnHeader_name;//this input property in state named with value.columnHeader_name
-                return (res.push(<th key={value.columnHeader_id} className="border-left" style={{ maxWidth: "128px" }} ><input className="form-control" type={value.type} placeholder={value.title} name={value.columnHeader_name} value={this.state[x]} onChange={filterFunction} ></input></th>));
+                return (res.push(<th key={value.columnHeader_id} className="border-left" style={{ maxWidth: "136px" }} ><input className="form-control" type={value.type} placeholder={value.title} name={value.columnHeader_name} value={this.state[x]} onChange={filterFunction} ></input></th>));
             }
+            return (res.push(<th key={value.columnHeader_id} className="border-left" ></th>))
         })
         return res;
     }
