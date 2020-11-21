@@ -11,6 +11,8 @@ let factorColumn =(props)=> [
         height: '100px',
         fun: (item) => {return <div><i className="fas fa-trash-alt"></i></div>},
         sortable: false,
+        filterable: false,
+        type: 'icon',
     },////////////////////////removeFactorArrayItem need to check id vs productId
     {
         columnHeader_id: 1,
@@ -19,7 +21,9 @@ let factorColumn =(props)=> [
         width: '64px',
         height: '100px',
         fun: ((item) => {return <div> <img src={item.img} alt="strawberry" width="30px" height="30px"/>  <span> {item.title} </span></div>}),
-        sortable: false,
+        sortable: true,
+        filterable: true,
+        type: 'text',
     },
     {
         columnHeader_id: 2,
@@ -28,7 +32,9 @@ let factorColumn =(props)=> [
         width: '64px',
         height: '100px',
         fun: (item) => {return <div>{item.price}</div>},
-        sortable: false,
+        sortable: true,
+        filterable: true,
+        type: 'number',
     },
     {
         columnHeader_id: 3,
@@ -37,7 +43,9 @@ let factorColumn =(props)=> [
         width: '64px',
         height: '100px',
         fun: (item) => {return <div><Counter productId={item.productId} action={""} productCategory={item.productCategory} quantity={item.quantity} onChangeHandler= {props.onChangeHandler} /></div>},/////////////باید کانتر اضافه بشه
-        sortable: false,
+        sortable: true,
+        filterable: true,
+        type: 'number',
     },
     {
         columnHeader_id: 4,
@@ -46,7 +54,9 @@ let factorColumn =(props)=> [
         width: '64px',
         height: '100px',
         fun: (item) => {return <div>{item.quantity * item.price}</div>},
-        sortable: false,
+        sortable: true,
+        filterable: true,
+        type: 'number',
     },
     // {
     //     columnHeader_id: 5,
@@ -56,6 +66,8 @@ let factorColumn =(props)=> [
     //     fun: (item) => {return <div>{item.description}</div>},
     //     type: 'info',
         // sortable: false,
+        // filterable: true,
+        // type: 'number',
     // },
     // {
     //     columnHeader_id: 6,
@@ -64,6 +76,8 @@ let factorColumn =(props)=> [
     //     height: '100px',
     //     fun: (item) => {return <div>{item.id}</div>},
         // sortable: false,
+        // filterable: true,
+        // type: 'number',
     // },
 ]
 export default factorColumn;

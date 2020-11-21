@@ -27,7 +27,7 @@ function Factor(props) {
             }
         }
     }
-    //به درد نمی خوره به جای بالایی نوشته بودم دیدم اون کافیه همونو استفاده کردم
+    // به درد نمی خوره به جای بالایی نوشته بودم دیدم اون کافیه همونو استفاده کردم
     // const updatePage = (a , b) => {
     //     console.log(a,b);
     //     setupdatedData(data);
@@ -41,8 +41,8 @@ function Factor(props) {
             
             {/* <!-- mainbar --> */}
             <div className="mainbar col-md-9 col-12 d-flex flex-column justify-content-center align-items-center bg-1 marginRight25per" id="mainbar">
-                <PageTitle title={title} />
-                <div>
+                <div className="">
+                    <PageTitle title={title} />
                     <MyTable data={data} column={factorColumn({onChangeHandler: setupdatedData})} onClick={click} title={title} widgetTitle={"لیست"} {...props}/>
                     <TotalFactor/>
                 </div>
