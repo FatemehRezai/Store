@@ -6,7 +6,7 @@ import { Factor } from "./_screens/factor/_pages/index";
 import { Fruit } from "./_screens/fruit/_pages/index";
 import { HomeAppliances } from "./_screens/homeAppliances/_pages/index";
 import { Product } from './_pages/product.page';
-import { MyChart } from './_components/index'
+import { MyChart, MySearchBar } from './_components/index'
 import './App.css';
 
 function App() {
@@ -23,6 +23,7 @@ function App() {
     {/* <Route path="/ProductInfo/:id"  component={ProductInfo}/>
     <Route path="/Factor" exact component={Factor}/> */}
     <Route path="/chart" exact component={MyChart} />
+    <Route path="/search" exact component={MySearchBar} />
   </Router>);
 }
 

@@ -45,7 +45,7 @@ class MyTable extends Component {
 
     onSort = (data, sortKey, dir = "des") => {
         let sorted = MyTable._sort(data, sortKey, this.state.sortToggle);
-        this.setState({ data: sorted ,sortKey, sortToggle: !this.state.sortToggle});
+        this.setState({ data: sorted, sortKey, sortToggle: !this.state.sortToggle});
     }
 
     static _filter = (data, filters) => {
