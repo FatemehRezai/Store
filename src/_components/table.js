@@ -51,7 +51,7 @@ class MyTable extends Component {
     static _filter = (data, filters) => {
         const keys = Object.keys(filters);
         let _data = [...data];
-        console.log(filters, _data);
+        // console.log(filters, _data);
         keys.map( key => {
             _data = _.filter(_data, (item) => {
                 return `${filters[key]}` ==='' || `${item[key]}` === `${filters[key]}`;
@@ -83,13 +83,6 @@ class MyTable extends Component {
         //     filtered.length > 0 && this.setState({ data: filtered });
         //     }
         // );
-    }
-    OnKeyDownHandler = (e) => {
-        const { data } = this.props;
-        // Enter is pressed 
-        if (e.keyCode == 13) { 
-            this.onFilter(data); 
-        } 
     }
     
 
