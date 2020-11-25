@@ -23,7 +23,7 @@ function App() {
     {/* <Route path="/ProductInfo/:id"  component={ProductInfo}/>
     <Route path="/Factor" exact component={Factor}/> */}
     <Route path="/chart" exact component={MyChart} />
-    <Route path="/search" exact component={MySearchBar} />
+    {/* <Route path="/search" exact component={MySearchBar} /> */}
   </Router>);
 }
 

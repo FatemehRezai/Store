@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import clothing_productArray from '../_const/ClothingـProductSampleList';
 import column from '../../../_const/column';
 import category from '../../../_const/Category';
-import { MyTable, MyResponsiveNavbar, MySearchBar } from '../../../_components';
+import { MyTable, MyResponsiveNavbar, MySearchBar, MyChart,  } from '../../../_components';
 import { productCategoryObj } from '../../../_helpers/productCategoryObj';
 import { PageTitle } from '../../../_components/index';
 
@@ -30,6 +30,7 @@ console.log("data ",data);
                 <PageTitle title={productObj.categoryItem_title} />
                 <MySearchBar data={clothing_productArray} setData={setData} />
                 <MyTable data={data} column={column} onClick={click} title={productObj.categoryItem_title} widgetTitle={"لیست"}/>
+                <MyChart data={data} title={productObj.categoryItem_title} />
             </div>
         </div>
    
