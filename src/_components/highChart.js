@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 //i use https://www.npmjs.com/package/highcharts-react-official 
 import Highcharts from 'highcharts';
@@ -41,9 +40,7 @@ class MyChart extends Component {
         return res;
     };
     getPrice = () => {
-        //( _.filter(this.props.data, (item) => { return item.price; }) )
         const { data } = this.props;
-        console.log("dataPrice  ", data);
         let res = [];
         data.map((item) => {
             return (
@@ -54,7 +51,6 @@ class MyChart extends Component {
         return res;
     };
     getStock = () => {
-        //( _.filter(this.props.data, (item) => { return item.price; }) )
         const { data } = this.props;
         let res = [];
         data.map((item) => {
@@ -76,7 +72,7 @@ class MyChart extends Component {
             this.setState({
                 yAxis: { title: { text: 'موجودی' } },
                 series: [{ name: 'موجودی', data: this.getStock() }],
-                xAxis: { categories: this.getTitle() }
+                xAxis: { categories: this.getTitle() }                    
             })
         }
     }
@@ -88,24 +84,6 @@ class MyChart extends Component {
         })
 
     }
-
-    options = {
-        chart: {
-            type: 'column',
-        },
-        title: { text: this.props.title },
-        xAxis: { categories: this.getTitle() },
-        yAxis: { title: { text: 'قیمت' } },
-        plotOptions: {
-            line: {
-                dataLabels: {
-                    enabled: true
-                },
-                enableMouseTracking: false
-            }
-        },
-        series: [{ name: 'قیمت', data: this.getPrice() }],
-    };
 
 
 
@@ -141,14 +119,12 @@ class MyChart extends Component {
             series: this.state.series,
         }
 
-        // console.log(options1);
-
         return (
             <>
                 <div className="d-flex flex-row align-items-center m-3 p-2 shadow-sm rounded">
                     <div className="pl-3 border-left">
-                        <div className="form-check form-check-inline">
-                            <input className="form-check-input " type="radio" name="inlineRadioOptions" id="inlineRadio1" value="price" onChange={(e) => this.yAxisChangeHandler(e.target.value)} />
+                        <div className="form-check form-check-inline ">
+                            <input defaultChecked className="form-check-input " type="radio" name="inlineRadioOptions" id="inlineRadio1" value="price" onChange={(e) => this.yAxisChangeHandler(e.target.value)} />
                             <label className="form-check-label px-1" for="inlineRadio1">قیمت</label>
                         </div>
                         <div className="form-check form-check-inline">
@@ -193,6 +169,24 @@ MyChart.defaultProps = {
 
 }
 
+
+// options = {
+//     chart: {
+//         type: 'column',
+//     },
+//     title: { text: this.props.title },
+//     xAxis: { categories: this.getTitle() },
+//     yAxis: { title: { text: 'قیمت' } },
+//     plotOptions: {
+//         line: {
+//             dataLabels: {
+//                 enabled: true
+//             },
+//             enableMouseTracking: false
+//         }
+//     },
+//     series: [{ name: 'قیمت', data: this.getPrice() }],
+// };
 
 // options2 = {
     //   chart: {
