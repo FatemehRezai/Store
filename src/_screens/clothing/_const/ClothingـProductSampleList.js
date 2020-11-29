@@ -10,7 +10,7 @@ import Hoodie_3 from '../_pictures/hoodie_3.jpg';
 import Shoes_1 from '../_pictures/shoes_1.jpg';
 import Shoes_2 from '../_pictures/shoes_2.jpg';
 
-let clothing_productArray = [//////////////?????????????????
+let clothing_productArray = [
     {
         variant_id:2,
         productId:200,
