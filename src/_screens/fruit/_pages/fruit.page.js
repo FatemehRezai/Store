@@ -1,15 +1,19 @@
 import React, {useState} from 'react';
 // import logo from '../logo.png';
-import fruit_productArray from '../_const/FruitـProductSampleList';
+// import fruit_productArray from '../_const/FruitـProductSampleList';
 import column from '../../../_const/column';
 import category from '../../../_const/Category';
 
-import { MyTable, MyResponsiveNavbar, MySearchBar } from '../../../_components';
+import { MyTable, MyResponsiveNavbar, MySearchBar, MyChart } from '../../../_components';
 import { productCategoryObj } from '../../../_helpers/productCategoryObj';
 import { PageTitle } from '../../../_components/index';
+import { get } from "../../../_helpers/store";
 
 
 function Fruit(props) {
+    //get product Array from local Storage
+    let fruit_productArray = get('fruit_productArray');
+
     const productObj = productCategoryObj("fruit");
     const [data, setData] = useState(fruit_productArray);
 
@@ -33,6 +37,7 @@ function Fruit(props) {
                 <PageTitle title={productObj.categoryItem_title} />
                 <MySearchBar data={fruit_productArray} setData={setData} />
                 <MyTable data={data} column={column} onClick={click} title={productObj.categoryItem_title} widgetTitle={"لیست"}/>
+                <MyChart data={data} title={productObj.categoryItem_title} />
             </div>
         </div>
     </>);

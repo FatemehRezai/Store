@@ -1,13 +1,18 @@
 import React, {useState} from 'react';
 // import logo from '../logo.png';
-import clothing_productArray from '../_const/ClothingـProductSampleList';
+// import clothing_productArray from '../_const/ClothingـProductSampleList';
 import column from '../../../_const/column';
 import category from '../../../_const/Category';
 import { MyTable, MyResponsiveNavbar, MySearchBar, MyChart,  } from '../../../_components';
 import { productCategoryObj } from '../../../_helpers/productCategoryObj';
 import { PageTitle } from '../../../_components/index';
+import { get } from "../../../_helpers/store";
+
 
 function Clothing(props) {
+    //get product Array from local Storage
+    let clothing_productArray = get('clothing_productArray');
+
     const productObj = productCategoryObj("clothing");
     const [data, setData] = useState(clothing_productArray);
 
@@ -31,6 +36,7 @@ console.log("data ",data);
                 <MySearchBar data={clothing_productArray} setData={setData} />
                 <MyTable data={data} column={column} onClick={click} title={productObj.categoryItem_title} widgetTitle={"لیست"}/>
                 <MyChart data={data} title={productObj.categoryItem_title} />
+                {/* <img src={temp[0].img} /> */}
             </div>
         </div>
    

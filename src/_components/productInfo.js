@@ -22,11 +22,11 @@ class ProductInfo extends Component {
 
         const { productId, data, productCategory } = this.props;
 
-
         const isEqualId = (i) => +(i.productId) === +(productId);///////////???????????????????
         const index = data.findIndex(isEqualId);
-        // console.log("index   " , index);
+        console.log("index   " , index);
         const {description, name, price, img, stock, title } = data[index];
+        console.log(img);
         return <>
             <div id={productId} className="border d-flex h-50">
                 <div id="productInfoImg" className="text-center m-auto p-2"><img src={img} alt={name} className="productImg"/></div>

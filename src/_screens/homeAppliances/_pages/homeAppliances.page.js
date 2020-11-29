@@ -1,13 +1,17 @@
 import React, {useState} from 'react';
 // import logo from '../logo.png';
-import homeAppliances_productArray from '../_const/HomeAppliancesـProductSampleList.js';
+// import homeAppliances_productArray from '../_const/HomeAppliancesـProductSampleList.js';
 import column from '../../../_const/column';
 import category from '../../../_const/Category';
-import { MyTable, MyResponsiveNavbar, MySearchBar } from '../../../_components';
+import { MyTable, MyResponsiveNavbar, MySearchBar, MyChart } from '../../../_components';
 import { productCategoryObj } from '../../../_helpers/productCategoryObj';
 import { PageTitle } from '../../../_components/index';
+import { get } from "../../../_helpers/store";
 
 function HomeAppliances(props) {
+    //get product Array from local Storage
+    let homeAppliances_productArray = get('homeAppliances_productArray');
+
     const productObj = productCategoryObj("home-appliances");
     const [data, setData] = useState(homeAppliances_productArray);
 
@@ -30,6 +34,7 @@ function HomeAppliances(props) {
                 <PageTitle title={productObj.categoryItem_title} />
                 <MySearchBar data={homeAppliances_productArray} setData={setData} />
                 <MyTable data={data} column={column} onClick={click} title={productObj.categoryItem_title} widgetTitle={"لیست"}/>
+                <MyChart data={data} title={productObj.categoryItem_title} />
             </div>
         </div>
 

@@ -14,23 +14,50 @@ class MyChart extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            externalData: null,
+            data: this.props.data || [],
             dropdownOpen: false,
             checkedChartType: true,
             type: 'column',
             title: { text: this.props.title },
-            xAxis: { categories: this.getTitle() },
+            xAxis: { categories: MyChart._getTitle(props.data) },
             yAxis: { title: { text: 'قیمت' } },
-            series: [{ name: 'قیمت', data: this.getPrice(), colorByPoint: true, }]
+            series: [{ name: 'قیمت', data: MyChart._getPrice(props.data), colorByPoint: true, }]
         };
     };
+
+    static getDerivedStateFromProps(nextProps, prevState) {
+        if (nextProps.data !== prevState.data) {
+            let _data = nextProps.data;
+            console.log("_data", _data);
+            let tempSeries = prevState.series.name === 'قیمت' ? [{ name: 'قیمت', data: MyChart._getPrice(_data) }] :
+                                                                [{ name: 'موجودی', data: MyChart._getStock(_data) }];
+            return {
+                externalData: null,
+                data: _data,
+                xAxis: { categories: MyChart._getTitle(_data) },
+                series: tempSeries,
+            };
+        }
+
+        // No state update necessary
+        return null;
+    }
 
 
     toggle = () => this.setState({ dropdownOpen: !this.state.dropdownOpen });
 
-    getTitle = () => {
-        //_.filter(this.props.data, (item) => { return item.title; })
-        const { data } = this.props;
-        console.log("dataTitle  ", data);
+    // static _getData = (data) => {
+    //     return data;
+    // }
+    // getData = () => {
+    //     const { data } = this.props;
+    //     return MyChart._getData(data);
+    // }
+
+    static _getTitle = (data) => {
+
+        // console.log("dataTitle  ", data);
         let res = [];
         data.map((item) => {
             return (
@@ -39,8 +66,11 @@ class MyChart extends Component {
         });
         return res;
     };
-    getPrice = () => {
-        const { data } = this.props;
+
+
+    static _getPrice = (data) => {
+        // const { data } = this.props;
+        // let _data = MyChart._getData(data);
         let res = [];
         data.map((item) => {
             return (
@@ -50,8 +80,9 @@ class MyChart extends Component {
 
         return res;
     };
-    getStock = () => {
-        const { data } = this.props;
+    static _getStock = (data) => {
+        // const { data } = this.props;
+        // let _data = MyChart._getData(data);
         let res = [];
         data.map((item) => {
             return (
@@ -61,18 +92,22 @@ class MyChart extends Component {
 
         return res;
     };
+
+
+
+
     yAxisChangeHandler = (value) => {
         if (value === "price") {
             this.setState({
                 yAxis: { title: { text: 'قیمت' } },
-                series: [{ name: 'قیمت', data: this.getPrice() }],
-                xAxis: { categories: this.getTitle() }
+                series: [{ name: 'قیمت', data: MyChart._getPrice(this.props.data) }],
+                xAxis: { categories: MyChart._getTitle(this.props.data) }
             })
         } else {
             this.setState({
                 yAxis: { title: { text: 'موجودی' } },
-                series: [{ name: 'موجودی', data: this.getStock() }],
-                xAxis: { categories: this.getTitle() }                    
+                series: [{ name: 'موجودی', data: MyChart._getStock(this.props.data) }],
+                xAxis: { categories: MyChart._getTitle(this.props.data) }
             })
         }
     }
@@ -168,6 +203,99 @@ MyChart.defaultProps = {
     data: [],
 
 }
+
+
+
+
+
+
+
+//    //////////////////////////////////////////////
+//    static _getTitle = (data) => {
+//     let res = [];
+//     data.map((item) => {
+//         return (
+//             res.push(item.title + item.productId)
+//         )
+//     });
+//     return res;
+// }
+// getTitle = () => {
+//     const { data } = this.props;
+//     let res = MyChart._getTitle(data);
+//     return res;
+// };
+
+// static _getPrice = (data) => {
+//     let res = [];
+//     data.map((item) => {
+//         return (
+//             res.push(item.price)
+//         )
+//     });
+
+//     return res;
+// }
+// getPrice = () => {
+//     const { data } = this.props;
+//     let res = MyChart._getPrice(data);
+//     return res;
+// };
+
+// static _getStock = (data) => {
+//     let res = [];
+//     data.map((item) => {
+//         return (
+//             res.push(item.stock)
+//         )
+//     });
+
+//     return res;
+// }
+// getStock = () => {
+//     const { data } = this.props;
+//     let res = MyChart._getStock(data);
+//     return res;
+// };
+// //////////////////////////////////////////////////
+
+
+// getTitle = () => {
+//     //_.filter(this.props.data, (item) => { return item.title; })
+//     const { data } = this.props;
+//     // console.log("dataTitle  ", data);
+//     let res = [];
+//     data.map((item) => {
+//         return (
+//             res.push(item.title + item.productId)
+//         )
+//     });
+//     return res;
+// };
+
+
+// getPrice = () => {
+//     const { data } = this.props;
+//     let res = [];
+//     data.map((item) => {
+//         return (
+//             res.push(item.price)
+//         )
+//     });
+
+//     return res;
+// };
+// getStock = () => {
+//     const { data } = this.props;
+//     let res = [];
+//     data.map((item) => {
+//         return (
+//             res.push(item.stock)
+//         )
+//     });
+
+//     return res;
+// };
 
 
 // options = {
