@@ -13,7 +13,7 @@ function Clothing(props) {
     //get product Array from local Storage
     let clothing_productArray = get('clothing_productArray');
 
-    const productObj = productCategoryObj("clothing");
+    const categoryObj = productCategoryObj("clothing");
     const [data, setData] = useState(clothing_productArray);
 
     const click = (column, item) => {
@@ -23,20 +23,19 @@ function Clothing(props) {
             });
         }
     }
-console.log("data ",data);
+
     return (<>
         {/* main */}
         <div className="main px-0 d-flex bg-1" dir='rtl'>
             {/* responsive Navigation bar */}
-            <MyResponsiveNavbar data={category} pageId={productObj.categoryItem_id}/>
+            <MyResponsiveNavbar data={category} pageId={categoryObj.categoryItem_id}/>
             
             {/* <!-- mainbar --> */}
             <div className="mainbar col-md-9 col-12 d-flex flex-column justify-content-center align-items-center bg-1 marginRight25per" id="mainbar">
-                <PageTitle title={productObj.categoryItem_title} />
+                <PageTitle title={categoryObj.categoryItem_title} />
                 <MySearchBar data={clothing_productArray} setData={setData} />
-                <MyTable data={data} column={column} onClick={click} title={productObj.categoryItem_title} widgetTitle={"لیست"}/>
-                <MyChart data={data} title={productObj.categoryItem_title} />
-                {/* <img src={temp[0].img} /> */}
+                <MyTable data={data} column={column} onClick={click} title={categoryObj.categoryItem_title} widgetTitle={"لیست"} categoryObj={categoryObj} havePin={true} screenType={"product"} />
+                <MyChart data={data} title={categoryObj.categoryItem_title} categoryObj={categoryObj} havePin={true} screenType={"product"} />
             </div>
         </div>
    

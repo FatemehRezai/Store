@@ -11,3 +11,4 @@ export * from './PageTitle'
 export * from './widgetTitle';
 export * from './highChart';
 export * from './searchBar';
+export * from './WidgetExtra';

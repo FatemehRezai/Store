@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+
 //i use https://www.npmjs.com/package/highcharts-react-official 
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 import PropTypes from 'prop-types';
+
+import { WidgetExtra } from '../_components/WidgetExtra';
 import '../_styles/s.css';
 
 // Load the full build.
@@ -154,39 +157,45 @@ class MyChart extends Component {
             series: this.state.series,
         }
 
+        const renderWidgetExtra = () => {
+            if (this.props.havePin === true) {
+                return <WidgetExtra type={'chart'} categoryObj={this.props.categoryObj} column={this.props.column} screenType={this.props.screenType} />
+            }
+        }
+
         return (
             <>
-                <div className="d-flex flex-row align-items-center m-3 p-2 shadow-sm rounded">
-                    <div className="pl-3 border-left">
-                        <div className="form-check form-check-inline ">
-                            <input defaultChecked className="form-check-input " type="radio" name="inlineRadioOptions" id="inlineRadio1" value="price" onChange={(e) => this.yAxisChangeHandler(e.target.value)} />
-                            <label className="form-check-label px-1" for="inlineRadio1">قیمت</label>
-                        </div>
-                        <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="stock" onChange={(e) => this.yAxisChangeHandler(e.target.value)} />
-                            <label className="form-check-label px-1" for="inlineRadio2">موجودی</label>
-                        </div>
-                    </div>
-                    {/* <FormGroup className="m-0 mx-2" size="sm">
-						<Input type="select" name="select" id="exampleSelect">
-							<option>قیمت</option>
-							<option>موجودی</option>
-						</Input>
-					</FormGroup> */}
+                <div className="border w-75 mb-5 shadow-sm" > 
+                    <div className="d-flex flex-row justify-content-between align-items-center p-1">
+                        <div className="d-flex flex-row align-items-center m-3 p-2 shadow-sm rounded" id="chartContoroler">
+                            <div className="pl-3 border-left">
+                                <div className="form-check form-check-inline ">
+                                    <input defaultChecked className="form-check-input " type="radio" name="inlineRadioOptions" id="inlineRadio1" value="price" onChange={(e) => this.yAxisChangeHandler(e.target.value)} />
+                                    <label className="form-check-label px-1" htmlFor="inlineRadio1">قیمت</label>
+                                </div>
+                                <div className="form-check form-check-inline">
+                                    <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="stock" onChange={(e) => this.yAxisChangeHandler(e.target.value)} />
+                                    <label className="form-check-label px-1" htmlFor="inlineRadio2">موجودی</label>
+                                </div>
+                            </div>
 
-                    <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle} size="sm" className="px-3">
-                        <DropdownToggle caret outline color="secondary">نوع نمودار</DropdownToggle>
-                        <DropdownMenu right>
-                            <DropdownItem value="column" active={this.state.checkedChartType} onClick={(e) => this.chartTypeChangeHandler(e.target.value)} >میله ای</DropdownItem>
-                            <DropdownItem value="pie" active={!this.state.checkedChartType} onClick={(e) => this.chartTypeChangeHandler(e.target.value)}>دایره ای</DropdownItem>
-                        </DropdownMenu>
-                    </Dropdown>
-                </div>
-                <div className="mb-5">
-                    <HighchartsReact
-                        highcharts={Highcharts}
-                        options={options1}
-                    />
+                            <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle} size="sm" className="px-3">
+                                <DropdownToggle caret outline color="secondary">نوع نمودار</DropdownToggle>
+                                <DropdownMenu right>
+                                    <DropdownItem value="column" active={this.state.checkedChartType} onClick={(e) => this.chartTypeChangeHandler(e.target.value)} >میله ای</DropdownItem>
+                                    <DropdownItem value="pie" active={!this.state.checkedChartType} onClick={(e) => this.chartTypeChangeHandler(e.target.value)}>دایره ای</DropdownItem>
+                                </DropdownMenu>
+                            </Dropdown>
+                        </div>
+                        {renderWidgetExtra()}
+                    </div>
+
+                    <div className="mb-5">
+                        <HighchartsReact
+                            highcharts={Highcharts}
+                            options={options1}
+                        />
+                    </div> 
                 </div>
             </>
         )

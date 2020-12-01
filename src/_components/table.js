@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from "react-router-dom";
 import PropTypes from 'prop-types';
 import { Button } from 'reactstrap';
-import { WidgetTitle } from '../_components/index';
+import { WidgetTitle, WidgetExtra } from '../_components/index';
 import { category } from "../_const/Category";
 
 // Load the full build.
@@ -61,28 +61,7 @@ class MyTable extends Component {
     } 
     onFilter = (data) => {
         const {filters} = this.state;
-
-        this.setState( {data: MyTable._filter(data, filters)});
-        
-        // const { name, value, type } = e.target;
-        // const fieldStr = filed.toString();
-        // const tempValue = (type === 'number') ? +value : value;
-        
-        // console.log("e.target.name ", e.target.name , "  e.target.value ", e.target.value );
-        // console.log("tempValue ", tempValue );
-
-        // this.setState({ [name]: tempValue }, () => {
-            
-        //     // console.log("filterKey ", typeof this.state.filterKey);
-
-        //     //_.matchesProperty(path, srcValue)
-        //     // path (Array|string): The path of the property to get.
-        //     // srcValue (*): The value to match.
-        //     let filtered = _.filter(data, _.matchesProperty(fieldStr, tempValue));
-
-        //     filtered.length > 0 && this.setState({ data: filtered });
-        //     }
-        // );
+        this.setState( {data: MyTable._filter(data, filters)});    
     }
     
 
@@ -111,7 +90,6 @@ class MyTable extends Component {
             })
         }
         const OnKeyDownHandler = (e) => {
-            console.log(e);
             // Enter is pressed
             if (e.charCode === 13) {
                 this.onFilter(data);
@@ -128,15 +106,6 @@ class MyTable extends Component {
         return res;
     }
 
-    // //onclick method and go to product info need to check and change
-    // gotoProductInfo = (productId) => {
-    //     // console.log("this.props.   table",  this.props);
-    //     const productCategory = this.props.location.pathname;
-    //     this.props.history.push({
-    //         pathname: productCategory + '/' + productId,
-    //         // state: this.props.data
-    //     });
-    // }
     generateTableData = () => {
         const {column, onClick} = this.props;
         const {data} = this.state;
@@ -147,7 +116,7 @@ class MyTable extends Component {
                 res.push(
                     ////////////////////?????
                     <tr key={value.productId}>
-                        {/* productId */}
+                        
                         {column.map((value2, index2) => {
                             return (<td key={value2.columnHeader_id} ><span style={{ display: "inline-block" }} onClick={() => { onClick && onClick(value2, value) }}>{value2.fun(value)}</span></td>);//props click
                             // if (value2.type === 'info') {
@@ -163,13 +132,24 @@ class MyTable extends Component {
         })
         return res;
     }
+    
+ 
 
     render () {
-        // console.log("this.props.data   " , this.props.data);
+        const renderWidgetExtra = () => {
+            if (this.props.havePin === true) {
+                return <WidgetExtra type={'table'} categoryObj={this.props.categoryObj} column={this.props.column} screenType={this.props.screenType} />;
+            }
+        }
+
         return <>
-            <div key={this.props.data} className="d-flex flex-column" style={{ maxWidth: "75%" }}>
+            <div key={this.props.data} className="d-flex flex-column shadow-sm" style={{ maxWidth: "75%" }}>
                 {/* <caption className="align-self-start px-5">لیست پوشاک</caption> */}
-                <WidgetTitle title={this.props.title} widgetTitle={this.props.widgetTitle}/>
+                <div className="d-flex justify-content-between align-items-center p-1">
+                    <WidgetTitle title={this.props.title} widgetTitle={this.props.widgetTitle}/>
+                    {renderWidgetExtra()}
+                </div>
+                
                 <table className="table table-hover table-responsive border"> 
                     <thead className="thead-light text-center">
                         <tr>

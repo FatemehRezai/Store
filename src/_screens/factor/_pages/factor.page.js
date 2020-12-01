@@ -41,11 +41,11 @@ function Factor(props) {
             
             {/* <!-- mainbar --> */}
             <div className="mainbar col-md-9 col-12 d-flex flex-column justify-content-center align-items-center bg-1 marginRight25per" id="mainbar">
-                <div className="">
+                {/* <div className=""> */}
                     <PageTitle title={title} />
-                    <MyTable data={data} column={factorColumn({onChangeHandler: setupdatedData})} onClick={click} title={title} widgetTitle={"لیست"} {...props}/>
-                    <TotalFactor/>
-                </div>
+                    <MyTable data={data} column={factorColumn({onChangeHandler: setupdatedData})} onClick={click} title={title} widgetTitle={"لیست"} screenType={"factor"} {...props}/>
+                    <TotalFactor className="col-12"/>
+                {/* </div> */}
             </div>
         </div>
    

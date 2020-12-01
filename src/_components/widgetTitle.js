@@ -13,7 +13,7 @@ class WidgetTitle extends Component {
     render() {
         const {title, widgetTitle} = this.props;
         return(<>
-            <div className="mb-3">
+            <div className="my-3">
                 <span>{widgetTitle} {title} </span>
             </div>
         </>);

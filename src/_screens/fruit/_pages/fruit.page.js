@@ -14,7 +14,7 @@ function Fruit(props) {
     //get product Array from local Storage
     let fruit_productArray = get('fruit_productArray');
 
-    const productObj = productCategoryObj("fruit");
+    const categoryObj = productCategoryObj("fruit");
     const [data, setData] = useState(fruit_productArray);
 
     const click = (column, item) => {
@@ -30,14 +30,14 @@ function Fruit(props) {
         {/* main */}
         <div className="main px-0 d-flex bg-1" dir='rtl'>
             {/* responsive Navigation bar */}
-            <MyResponsiveNavbar data={category} pageId={productObj.categoryItem_id}/>
+            <MyResponsiveNavbar data={category} pageId={categoryObj.categoryItem_id}/>
 
             {/* mainbar */}
             <div className="mainbar col-md-9 col-12 d-flex flex-column justify-content-center align-items-center bg-1 marginRight25per" id="mainbar">
-                <PageTitle title={productObj.categoryItem_title} />
+                <PageTitle title={categoryObj.categoryItem_title} />
                 <MySearchBar data={fruit_productArray} setData={setData} />
-                <MyTable data={data} column={column} onClick={click} title={productObj.categoryItem_title} widgetTitle={"لیست"}/>
-                <MyChart data={data} title={productObj.categoryItem_title} />
+                <MyTable data={data} column={column} onClick={click} title={categoryObj.categoryItem_title} widgetTitle={"لیست"} categoryObj={categoryObj} havePin={true} screenType={"product"} />
+                <MyChart data={data} title={categoryObj.categoryItem_title} categoryObj={categoryObj} havePin={true} screenType={"product"} />
             </div>
         </div>
     </>);
