@@ -7,7 +7,7 @@ import category from '../../../_const/Category';
 import { MyTable, MyResponsiveNavbar } from '../../../_components';
 import { lsJoinProductArray } from '../_helpers/lsJoinProductArray';
 import { removeFactorArrayItem } from '../_contorollers/factors.contoroller';
-import { TotalFactor } from '../_components';
+import { TotalFactor, PrintFactor } from '../_components';
 
 import { PageTitle } from '../../../_components/index';
 
@@ -43,8 +43,9 @@ function Factor(props) {
             <div className="mainbar col-md-9 col-12 d-flex flex-column justify-content-center align-items-center bg-1 marginRight25per" id="mainbar">
                 {/* <div className=""> */}
                     <PageTitle title={title} />
-                    <MyTable data={data} column={factorColumn({onChangeHandler: setupdatedData})} onClick={click} title={title} widgetTitle={"لیست"} screenType={"factor"} {...props}/>
-                    <TotalFactor className="col-12"/>
+                    <MyTable data={data} column={factorColumn({onChangeHandler: setupdatedData})} onClick={click} title={title} widgetTitle={"لیست"} screenType={"factor"}  {...props}/>
+                    <TotalFactor />
+                    <PrintFactor/>
                 {/* </div> */}
             </div>
         </div>

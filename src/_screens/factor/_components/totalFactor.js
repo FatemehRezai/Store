@@ -15,7 +15,7 @@ class TotalFactor extends Component {
     render() {
 
         return(<>
-            <div className="border d-flex justify-content-center p-2 bg-secondary shadow">
+            <div className="border d-flex justify-content-center p-2 bg-secondary shadow rounded my-2">
                 <span>{"مبلغ قابل پرداخت:"}</span>
                 <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
                 <span className="">{this.totalFactorArray()}</span>

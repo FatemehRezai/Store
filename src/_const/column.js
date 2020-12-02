@@ -7,7 +7,7 @@ let column = [
         title: 'نام',
         width: '64px',
         height: '100px',
-        fun: ((item) => {return <div> <img src={item.img} alt={item.title} width="30px" height="30px"/>  <span> {item.title} </span></div>}),
+        fun: ((item) => {return <div> <img src={item.img} alt={item.title} width="30px" height="30px" />  <span className="text-nowrap">  {item.title} </span></div>}),
         sortable: true,
         filterable: true,
         type: 'text',

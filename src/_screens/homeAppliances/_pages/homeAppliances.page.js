@@ -10,16 +10,16 @@ import { get } from "../../../_helpers/store";
 
 function HomeAppliances(props) {
     //get product Array from local Storage
-    let homeAppliances_productArray = get('homeAppliances_productArray');
+    let homeAppliances_productArray= get('home-appliances_productArray');
 
     const categoryObj = productCategoryObj("home-appliances");
     const [data, setData] = useState(homeAppliances_productArray);
 
-    const click = (column, item) => {
+    const click = (column, item, categoryName) => {
         if (column.columnHeader_id === 5) {
             props.history.push({
-                // pathname: 'home-appliances' + '/' + item.productId,
-                pathname: `home-appliances/${item.productId}`,
+                // categoryName: 'home-appliances' 
+                pathname: `${categoryName}/${item.productId}`,
             });
         }
     }

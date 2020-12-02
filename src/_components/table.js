@@ -13,7 +13,8 @@ class MyTable extends Component {
         super(props);
         this.state = {
             externalData: null,
-            data:this.props.data || [],
+            data: props.data || [],
+            categoryName: props.categoryObj.categoryItem_name || "",
             sortToggle: false,
             filterKey: '',
             sortKey: '',
@@ -75,7 +76,7 @@ class MyTable extends Component {
                 return (res.push(<th key={value.columnHeader_id} className="border-left" ><i className="fas fa-sort" style={{ cursor: 'pointer' }} onClick={sortFunction}></i> {value.title}</th>));
             }
 
-            return (res.push(<th key={value.columnHeader_id} className="border-left" >{value.title}</th>))
+            return (res.push(<th key={value.columnHeader_id} className={`th_${value.columnHeader_id} border-left`} >{value.title}</th>))
         })
         return res;
     }
@@ -118,7 +119,7 @@ class MyTable extends Component {
                     <tr key={value.productId}>
                         
                         {column.map((value2, index2) => {
-                            return (<td key={value2.columnHeader_id} ><span style={{ display: "inline-block" }} onClick={() => { onClick && onClick(value2, value) }}>{value2.fun(value)}</span></td>);//props click
+                            return (<td key={value2.columnHeader_id} className={`td_${value2.columnHeader_id}`} ><span style={{ display: "inline-block" }} onClick={() => { onClick && onClick(value2, value, this.state.categoryName) }}>{value2.fun(value)}</span></td>);//props click
                             // if (value2.type === 'info') {
                             //     return (<td key={value2.columnHeader_id} onClick={()=> {onClick && onClick(value2, value)}}><Button color="info" >مشاهده</Button></td>);
                             // } else {
@@ -157,7 +158,7 @@ class MyTable extends Component {
                         </tr>
                     </thead>
                     <thead className="thead-light text-center">
-                        <tr>
+                        <tr className="tableFilterHeader">
                             {this.generateFilterHeader()}
                         </tr>
                     </thead>
@@ -179,12 +180,14 @@ MyTable.propTypes = {
     column: PropTypes.array,
     title: PropTypes.string,
     widgetTitle: PropTypes.string,
+    categoryObj: PropTypes.object,
 }
 MyTable.defaultProps = {
     data: [],
     column: [],
     title: "",
     widgetTitle: "لیست",
+    categoryObj: {},
 }
 
 

@@ -16,10 +16,11 @@ function Clothing(props) {
     const categoryObj = productCategoryObj("clothing");
     const [data, setData] = useState(clothing_productArray);
 
-    const click = (column, item) => {
+    const click = (column, item, categoryName) => {
         if (column.columnHeader_id === 5) { // in column of info 
             props.history.push({
-                pathname: `clothing/${item.productId}`,
+                // categoryName: 'clothing'
+                pathname: `${categoryName}/${item.productId}`,
             });
         }
     }

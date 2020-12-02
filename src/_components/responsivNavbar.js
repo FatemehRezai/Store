@@ -15,6 +15,10 @@ class MyResponsiveNavbar extends Component {
     goHome = () => {
         this.props.history.push('/');
     }
+    
+    goDashboard = () => {
+        this.props.history.push('/dashboard');
+    }
 
     goFactor = () => {
         this.props.history.push('/factor');
@@ -29,7 +33,7 @@ class MyResponsiveNavbar extends Component {
             const modifiedclassName = isActive? "testClick list-group-item list-group-item-action py-3 my-1 active":
                             "testClick list-group-item list-group-item-action py-3 my-1";
 
-            res.push(<li key = {value.categoryItem_id}><a className={modifiedclassName} href={value.categoryItem_href}><i className={value.categoryItem_icon}></i> {value.categoryItem_title} </a></li>) 
+            res.push(<li key = {value.categoryItem_id} className="rounded"><a className={modifiedclassName} href={value.categoryItem_href}><i className={value.categoryItem_icon}></i> {value.categoryItem_title} </a></li>) 
         })
         return res;
     }
@@ -50,14 +54,15 @@ class MyResponsiveNavbar extends Component {
             const modifiedclassName = isActive? "active" :"";
 
             res.push(
-                <NavItem key = {value.categoryItem_id} className={modifiedclassName}>
-                    <NavLink href={value.categoryItem_href}><i className={value.categoryItem_icon}></i> {value.categoryItem_title} </NavLink>
+                <NavItem key = {value.categoryItem_id} className={`${modifiedclassName} rounded`}>
+                    <NavLink href={value.categoryItem_href} className="px-1" ><i className={value.categoryItem_icon}></i> {value.categoryItem_title} </NavLink>
                 </NavItem>
             );
 
         })
         return res;
     }
+
     render() {
         return <>
             {/* <!-- sidebar --> */}
@@ -65,6 +70,9 @@ class MyResponsiveNavbar extends Component {
                 <div className="cartButton justify-content-between mx-1 my-3 d-flex row">
                     <button type="button" className="btn btn-light btn-lg " onClick={() => this.goHome()}>
                         <i className="fas fa-home"></i>
+                    </button>
+                    <button type="button" className="btn btn-light btn-lg " onClick={() => this.goDashboard()}>
+                    <i className="fas fa-chalkboard-teacher"></i>
                     </button>
                     <button type="button" className="btn btn-light btn-lg " onClick={() => this.goFactor()}>
                         <i className="fas fa-shopping-cart"></i>
@@ -79,11 +87,21 @@ class MyResponsiveNavbar extends Component {
             {/* <!-- navbar --> */}
             {/* <!-- On screens that are less than 768px wide, make the sidebar into a topbar  --> */}
             <div className="mynavbar d-md-none d-block bg-dark fixed-top">
+                
                 <Navbar dark>
                     {/* <NavbarBrand href="/" className="mr-auto">reactstrap</NavbarBrand> */}
                     <NavbarToggler onClick={this.toggleNavbar} className="mr-2 mb-2" />
                     <Collapse isOpen={!this.state.collapsed} navbar className="mr-2">
                         <Nav navbar>
+                            <NavItem  className={` rounded`}>
+                                <NavLink onClick={() => this.goHome()} className="px-1" ><i className="fas fa-home"></i> {" خانه"} </NavLink>
+                            </NavItem>
+                            <NavItem  className={` rounded`}>
+                                <NavLink onClick={() => this.goDashboard()} className="px-1" ><i className="fas fa-chalkboard-teacher"></i> {" داشبورد"} </NavLink>
+                            </NavItem>
+                            <NavItem  className={` rounded`}>
+                                <NavLink onClick={() => this.goFactor()} className="px-1" ><i className="fas fa-shopping-cart"></i> {" صورت حساب"} </NavLink>
+                            </NavItem>
                             {this.generateCategoryNav()}
                         </Nav>
                     </Collapse>

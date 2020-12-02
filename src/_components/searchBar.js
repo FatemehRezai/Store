@@ -28,18 +28,16 @@ class MySearchBar extends Component {
         const { data, setData } = this.props;
 
         let _data = [...data];
-       _data = _.filter(_data, (item) => {
-            const keys = Object.keys(item);
-
-            let res = keys.map( key => {
-                return `${item[key]}`.includes(`${searchKey}`);
-            })
-
-            let isTrue = res.includes(true) || `${searchKey}` ==='';
-            if (isTrue) {
-                return item;
-            }
-       });
+        _data = _.filter(_data, (item) => {
+             const keys = Object.keys(item);    
+             let res = keys.map( key => {
+                 return `${item[key]}`.includes(`${searchKey}`);
+             }) 
+             let isTrue = res.includes(true) || `${searchKey}` ==='';
+             if (isTrue) {
+                 return item;
+             }
+        });
 
        setData(_data);
 

@@ -127,3 +127,32 @@ left: 0;
       margin-top: 48px;;
   }
 }
+
+@media print {
+  td button,
+  .td_0,
+  .th_0, 
+  .mysidebar {
+    display: none !important;
+  }
+  .mainbar{
+    margin-right: 0;
+    margin-top: 48px;
+
+    max-width: 100% !important;
+    flex: 1 1 100%;
+  }
+  .tableFilterHeader{
+    display: none !important;
+  }
+  .factorColumnDelete{
+    display: none !important;
+  }
+  .printFactor{
+    display: none !important;
+  }
+  table {
+    width: 100% !important;
+  }
+  
+}

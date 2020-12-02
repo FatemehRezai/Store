@@ -1,1 +1,2 @@
-export * from './totalFactor'
+export * from './totalFactor';
+export * from './printFactor'

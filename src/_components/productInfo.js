@@ -21,12 +21,13 @@ class ProductInfo extends Component {
         // const productCategory = (pathname.split("/"))[1];
 
         const { productId, data, productCategory } = this.props;
+        console.log("data   " , data);
 
         const isEqualId = (i) => +(i.productId) === +(productId);///////////???????????????????
         const index = data.findIndex(isEqualId);
-        console.log("index   " , index);
+        console.log("data[index]   " , data[index]);
         const {description, name, price, img, stock, title } = data[index];
-        console.log(img);
+        
         return <>
             <div id={productId} className="border d-flex h-50">
                 <div id="productInfoImg" className="text-center m-auto p-2"><img src={img} alt={name} className="productImg"/></div>

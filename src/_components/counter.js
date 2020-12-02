@@ -111,17 +111,17 @@ class Counter extends Component {
         }
 
         return <div >
-            <div className="counter d-flex row m-1">
-                <div className="quantitySelector  d-flex row mx-3">
-                    <Button type="" className="add" onClick={this.increaseQuantity}><i className="fa fa-plus"></i></Button>
-                    <div className="quantitySelectorNumber mx-2 py-1" data-max="10">
+            <div className="counter d-flex row m-1 ">
+                <div className="quantitySelector d-flex row mx-3 flex-nowrap my-1">
+                    <Button type="" className="add " onClick={this.increaseQuantity}><i className="fa fa-plus"></i></Button>
+                    <div className="quantitySelectorNumber mx-2 py-1 " data-max="10">
                         <span>
                           {this.state.quantity}
                         </span>
                     </div>
-                    <Button type="button" className="remove" onClick={this.decreaseQuantity}><i className="fa fa-minus"></i></Button>
+                    <Button type="button" className="remove " onClick={this.decreaseQuantity}><i className="fa fa-minus"></i></Button>
                 </div>
-                <div>
+                <div className="my-1">
                     {button}
                 </div>
             </div>           
