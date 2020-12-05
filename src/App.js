@@ -8,7 +8,7 @@ import { HomeAppliances } from "./_screens/homeAppliances/_pages/index";
 import { Product } from './_pages/product.page';
 import { MyChart } from './_components/index';
 import {localStorageSetter} from './_helpers/lsSetter'
-import './App.css';
+import './_styles/App.css';
 
 function App() {
   console.log("app");

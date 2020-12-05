@@ -8,7 +8,7 @@ import HighchartsReact from 'highcharts-react-official';
 import PropTypes from 'prop-types';
 
 import { WidgetExtra } from '../_components/WidgetExtra';
-import '../_styles/s.css';
+// import '../_styles/s.css';
 
 // Load the full build.
 var _ = require('lodash');
