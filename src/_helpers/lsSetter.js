@@ -4,7 +4,6 @@ import fruit_productArray from './FruitـSampleList';
 import homeAppliances_productArray from './HomeAppliancesـSampleList';
 import category from "../_const/Category";
 import column from "../_const/column";
-// import factorColumn from '../_screens/factor/_const/factorColumn'
 
 export function localStorageSetter(){
     get('clothing_productArray').length === 0 && set('clothing_productArray', clothing_productArray);
@@ -13,7 +12,6 @@ export function localStorageSetter(){
 
     get('category').length === 0 && set('category', category);
     get('column').length === 0 && set('column', column);
-    // get('factorColumn').length === 0 && set('factorColumn', factorColumn); 
 }
 
 

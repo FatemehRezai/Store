@@ -5,17 +5,11 @@ let factorArrayKey = 'factorArray';
 // setter
 export const setFactor = (productId , quantity, productCategory) => {
 
-    ////////////
     ///check array for having empty obj or not 
-    ////////////
-
     // Get the existing data
     let exist = get(factorArrayKey);
     const isEqualId = (i) => +(i.productId) === +(productId); 
     const indexOfFactor = exist.findIndex(isEqualId);
-
-    // const existence = exist[indexOfFactor];
-    // console.log(existence, "           ",productId, quantity);
     
     if (indexOfFactor > -1) {
 
@@ -59,7 +53,7 @@ export const removeFactorArrayItem = (id) => {
 
 
 // remove
-export const removeFactorArray = () => {//////////////need to change remove by idOfFactor
+export const removeFactorArray = () => {
     remove(factorArrayKey);
 }
 

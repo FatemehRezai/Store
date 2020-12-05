@@ -5,7 +5,7 @@ import KiwiIMG from '../_pictures/Kiwi.jpg'
 import PomegranateIMG from '../_pictures/Pomegranate.jpg'
 import WatermelonIMG from '../_pictures/Watermelon.jpg'
 import OrangeIMG from '../_pictures/Orange.jpg'
-///////////////////////////??????????????
+
 let fruit_productArray = [
     {
         variant_id:1,

@@ -2,9 +2,7 @@ import React,{Component} from 'react';
 import { withRouter } from "react-router-dom";
 import { Button } from 'reactstrap';
 import {setFactor, getFactorArray} from '../_screens/factor/_contorollers/factors.contoroller';
-/**
- * 
- */
+
 class Counter extends Component {
     /**
      * 
@@ -33,18 +31,6 @@ class Counter extends Component {
                 }
             })
         }
-        // if (this.state.quantity < this.state.max) {
-        //     // setState is async function if need to do sm after it you should write it in call back(2'th parameter)
-        //     this.setState({ quantity: this.state.quantity + 1 }, () => {
-        //         if (this.props.action !== "add") {
-        //             let tempId = this.props.id;
-        //             let tempQuantity = this.state.quantity;
-        //             console.log('tempQuantity  ', tempQuantity);
-        //             setFactor(tempId, tempQuantity);
-        //             this.props.onChangeHandler(tempQuantity);
-        //         }
-        //     })
-        // }
     }
 
     decreaseQuantity = () => {
@@ -61,18 +47,6 @@ class Counter extends Component {
                 }
             })
         }
-
-        // if (this.state.quantity > this.state.min) {
-        //     // setState is async function if need to do sm after it you should write it in call back(2'th parameter)
-        //     this.setState({ quantity: this.state.quantity - 1 }, () => {
-        //         if (this.props.action !== "add") {
-        //             let tempId = this.props.id;
-        //             let tempQuantity = this.state.quantity;
-        //             setFactor(tempId, tempQuantity);
-        //             this.props.onChangeHandler(tempQuantity);
-        //         }
-        //     })
-        // }
 
     }
 
@@ -104,7 +78,7 @@ class Counter extends Component {
     }
 
     render () {
-        const { productId, action, productCategory } = this.props;
+        const { action } = this.props;
         let button;
         if (action === "add") {
           button = <Button className="addToCartButton" onClick={this.addToCart}>افزودن به سبد خرید</Button>;

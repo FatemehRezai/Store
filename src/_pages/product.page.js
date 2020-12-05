@@ -1,6 +1,5 @@
 import React from 'react';
 import { withRouter } from "react-router-dom";
-// import logo from '../logo.png';
 import { MyResponsiveNavbar } from '../_components/index';
 import { ProductInfo } from "../_components/index";
 import { productCategoryChecker } from '../_helpers/productCategoryChecker';
@@ -12,7 +11,7 @@ function Product(props) {
     const {id} = props.match.params;//typeof id is string 
     const {pathname} = props.location;
     
-    //splite URL by "/" and take category name from it
+    //split URL by "/" and take category name from it
     //example: http://localhost:3000/home-appliances/302
     const productCategory = (pathname.split("/"))[1];
     const productArray = productCategoryChecker(productCategory);

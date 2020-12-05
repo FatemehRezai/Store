@@ -6,7 +6,7 @@ import Dishwasher_2 from '../_pictures/dishwasher_2.jpg';
 import Washing_Machine from '../_pictures/washing machine.jpg';
 import Vacuum_Cleaner from '../_pictures/vacuum cleaner.jpg';
 import Meat_Grinder from '../_pictures/Meat Grinder.jpg'
-/////////////////////////???????????????????
+
 let homeAppliances_productArray = [
     {
         variant_id:3,

@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-// import logo from '../logo.png';
 // import homeAppliances_productArray from '../_const/HomeAppliancesـProductSampleList.js';
 import column from '../../../_const/column';
 import category from '../../../_const/Category';

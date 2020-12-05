@@ -1,12 +1,3 @@
-import Refrigerator from '../_pictures/refrigerator.jpg';
-import TV_1 from '../_pictures/tv1.jpg';
-import TV_2 from '../_pictures/tv2.jpg';
-import Dishwasher_1 from '../_pictures/dishwasher_1.jpg';
-import Dishwasher_2 from '../_pictures/dishwasher_2.jpg';
-import Washing_Machine from '../_pictures/washing machine.jpg';
-import Vacuum_Cleaner from '../_pictures/vacuum cleaner.jpg';
-import Meat_Grinder from '../_pictures/Meat Grinder.jpg'
-
 let homeAppliances_productArray = [
     {
         variant_id:3,

@@ -5,9 +5,6 @@ import { Button } from 'reactstrap';
 import { WidgetTitle } from './index';
 import { category } from "../_const/Category";
 
-//truthtable file 
-//https://github.com/FatemehRezai/Store/blob/0c5022c2cd949e4b163b9b1b6057c9fb69fd968e/src/_components/table.js
-
 // Load the full build.
 var _ = require('lodash');
 
@@ -16,7 +13,6 @@ class MySearchBar extends Component {
         super(props);
         this.state = {
             searchKey: '',
-            // searchData: [],
         };
     }
 
@@ -41,10 +37,6 @@ class MySearchBar extends Component {
 
        setData(_data);
 
-    //    this.setState( {searchData: _data}, () => {
-    //     setData(searchData);
-    //     console.log("data  ", searchData);
-    //    });
     }
 
     OnKeyDownHandler = (e) => {
@@ -56,11 +48,9 @@ class MySearchBar extends Component {
     
 
     render() {
-        // console.log("this.props.data   " , this.props.data);//style={{ maxWidth: "136px" }}
         return <>
             <div key={this.props.data} className="m-3">
                 <input type="text" placeholder="جستجو..." name="search" className="col-12 form-control" value={this.state.searchKey} onChange={(e)=>this.filterFunction(e.target.value)} onKeyPress={this.OnKeyDownHandler}/>
-                {/* <button type="submit" className="col-3 btn btn-primary" ><i className="fa fa-search"></i></button> */}
             </div>
         </>
     }

@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { withRouter } from "react-router-dom";
-import imgHome from '../_pictures/home7.gif';
+
 import { MyChart, MyResponsiveNavbar, MyTable,  } from '../_components/index';
 import { getPinArray } from '../_contorollers/pinArray.controller';
 import { get } from '../_helpers/store';
@@ -10,7 +10,7 @@ import productColumn from '../_const/column';
 import factorColumn from '../_screens/factor/_const/factorColumn'
 import { lsJoinProductArray } from '../_screens/factor/_helpers/lsJoinProductArray';
 import { removeFactorArrayItem } from '../_screens/factor/_contorollers/factors.contoroller';
-import { TotalFactor, PrintFactor } from '../_screens/factor/_components';
+
 
 function Dashboard(props) {
     const [updatedData, setupdatedData] = useState();

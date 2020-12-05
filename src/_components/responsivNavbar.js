@@ -13,18 +13,6 @@ class MyResponsiveNavbar extends Component {
         };
     }
 
-    goHome = () => {
-        this.props.history.push('/');
-    }
-    
-    goDashboard = () => {
-        this.props.history.push('/dashboard');
-    }
-
-    goFactor = () => {
-        this.props.history.push('/factor');
-    }
-
     generateMainPathSide = (props) => {
         let res = [];
         mainPath.map( (value , index ) => {

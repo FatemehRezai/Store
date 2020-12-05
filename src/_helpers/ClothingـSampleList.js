@@ -1,15 +1,3 @@
-import Trouser_1 from '../_pictures/trouser_1.jpg';
-import Trouser_2 from '../_pictures/trouser_2.jpg';
-import Socks_1 from '../_pictures/socks_1.jpg';
-import Socks_2 from '../_pictures/socks_2.jpg';
-import Jacket_1 from '../_pictures/jacket_1.jpg';
-import Jacket_2 from '../_pictures/jacket_2.jpg';
-import Hoodie_1 from '../_pictures/hoodie_1.jpg';
-import Hoodie_2 from '../_pictures/hoodie_2.jpg';
-import Hoodie_3 from '../_pictures/hoodie_3.jpg';
-import Shoes_1 from '../_pictures/shoes_1.jpg';
-import Shoes_2 from '../_pictures/shoes_2.jpg';
-
 let clothing_productArray = [
     {
         variant_id:2,

@@ -60,22 +60,11 @@ export const removePinArrayItem = (id) => {
         // Save back to localStorage 
         set(pinArrayKey, exist); 
 
-        /////////////////////////////
-        // const slideDown = elem => elem.style.height = `${elem.scrollHeight}px`;
-        // const slideDown = elem => elem.style.height = `0px`;
-        // const slideDown = (element) => {
-        //     // element.style.height = '0px';
-        //     // element.style.transition = "height 10s ease-out";
-        //     element.style.animation = "fadeOut 1s ease-in";
-        // }
-        // slideDown(document.getElementById(id));
         const displayNone = (element) => {
             element.style.height = element.offsetHeight+'px';
             window.setTimeout(()=> element.style.height = '0px', 100);
-            // window.setTimeout(()=> element.style.display= "none", 1000);
         }
         displayNone(document.getElementById(id));
-        ///////////////////////////////////////////////
 
 
     } else {

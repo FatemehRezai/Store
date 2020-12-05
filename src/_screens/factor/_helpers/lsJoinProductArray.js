@@ -9,7 +9,7 @@ export function lsJoinProductArray() {
 
     ls.map( (value, index) => {
         let productArray = productCategoryChecker(value.productCategory);
-        const isEqualId = (i) => +(i.productId) === +(value.productId); /////////////////???????????????
+        const isEqualId = (i) => +(i.productId) === +(value.productId);
         const indexOfproduct = productArray.findIndex(isEqualId);
 
         return(
@@ -27,9 +27,6 @@ export function lsJoinProductArray() {
             )
         )
     })
-    
-
-    // console.log("res  join" , res);
 
     return res;
 }
