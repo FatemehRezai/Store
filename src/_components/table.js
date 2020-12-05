@@ -138,13 +138,11 @@ class MyTable extends Component {
 
     render () {
         const renderWidgetExtra = () => {
-            if (this.props.havePin === true) {
-                return <WidgetExtra type={'table'} categoryObj={this.props.categoryObj} column={this.props.column} screenType={this.props.screenType} />;
-            }
+            return <WidgetExtra type={'table'} categoryObj={this.props.categoryObj} column={this.props.column} screenType={this.props.screenType} haveUnPin={this.props.haveUnPin} havePin={this.props.havePin} id={this.props.id} />;
         }
 
         return <>
-            <div key={this.props.data} className="d-flex flex-column shadow-sm" style={{ maxWidth: "75%" }}>
+            <div id={this.props.id} key={this.props.data} className="shadow-sm mySlideUp" >
                 {/* <caption className="align-self-start px-5">لیست پوشاک</caption> */}
                 <div className="d-flex justify-content-between align-items-center p-1">
                     <WidgetTitle title={this.props.title} widgetTitle={this.props.widgetTitle}/>
@@ -181,6 +179,9 @@ MyTable.propTypes = {
     title: PropTypes.string,
     widgetTitle: PropTypes.string,
     categoryObj: PropTypes.object,
+    havePin: PropTypes.bool,
+    haveUnPin: PropTypes.bool,
+    id: PropTypes.string,
 }
 MyTable.defaultProps = {
     data: [],
@@ -188,6 +189,9 @@ MyTable.defaultProps = {
     title: "",
     widgetTitle: "لیست",
     categoryObj: {},
+    havePin: false,
+    haveUnPin: false,
+    id: "",
 }
 
 

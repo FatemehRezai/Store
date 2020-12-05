@@ -119,6 +119,12 @@ left: 0;
   right: 0;
   }
 
+  .mySlideUp{
+    transition:height 0.5s ease-out;
+    overflow:hidden;
+  }
+
+
 
   /* On screens that are less than 768px wide */
 @media screen and (max-width: 768px) {

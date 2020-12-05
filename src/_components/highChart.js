@@ -158,15 +158,13 @@ class MyChart extends Component {
         }
 
         const renderWidgetExtra = () => {
-            if (this.props.havePin === true) {
-                return <WidgetExtra type={'chart'} categoryObj={this.props.categoryObj} column={this.props.column} screenType={this.props.screenType} />
-            }
+            return <WidgetExtra type={'chart'} categoryObj={this.props.categoryObj} column={this.props.column} screenType={this.props.screenType} haveUnPin={this.props.haveUnPin} havePin={this.props.havePin} id={this.props.id} />;
         }
 
         return (
             <>
-                <div className="border w-75 mb-5 shadow-sm" > 
-                    <div className="d-flex flex-row justify-content-between align-items-center p-1">
+                <div id={this.props.id} className="w-100 mb-5 shadow-sm mySlideUp" style={{ maxWidth: "100%" }} > 
+                    <div className="d-flex flex-row justify-content-between align-items-center p-1 border">
                         <div className="d-flex flex-row align-items-center m-3 p-2 shadow-sm rounded" id="chartContoroler">
                             <div className="pl-3 border-left">
                                 <div className="form-check form-check-inline ">

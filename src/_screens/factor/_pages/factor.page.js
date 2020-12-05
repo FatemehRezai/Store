@@ -16,7 +16,7 @@ function Factor(props) {
     const title = "فاکتور";
     let data = lsJoinProductArray();
     const [updatedData, setupdatedData] = useState();
-    // console.log("ls join in factor.page", data);
+    
     
     const click = (column, item) => {
         if (column.columnHeader_id === 0) {
@@ -43,7 +43,7 @@ function Factor(props) {
             <div className="mainbar col-md-9 col-12 d-flex flex-column justify-content-center align-items-center bg-1 marginRight25per" id="mainbar">
                 {/* <div className=""> */}
                     <PageTitle title={title} />
-                    <MyTable data={data} column={factorColumn({onChangeHandler: setupdatedData})} onClick={click} title={title} widgetTitle={"لیست"} screenType={"factor"}  {...props}/>
+                    <MyTable data={data} column={factorColumn({onChangeHandler: setupdatedData})} onClick={click} title={title} widgetTitle={"لیست"} screenType={"factor"} havePin={true} {...props}/>
                     <TotalFactor />
                     <PrintFactor/>
                 {/* </div> */}
