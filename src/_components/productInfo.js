@@ -6,11 +6,9 @@ class ProductInfo extends Component {
 
     render() {
         const { productId, data, productCategory } = this.props;
-        console.log("data   " , data);
 
         const isEqualId = (i) => +(i.productId) === +(productId);
         const index = data.findIndex(isEqualId);
-        console.log("data[index]   " , data[index]);
         const {description, name, img, title } = data[index];
         
         return <>
